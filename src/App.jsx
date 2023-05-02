@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './App.css';
-const body = {"query": "{boards(ids:  { name id description items { name column_values{title id type text } } } }"};
-const config = {body,headers: {Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjI1MzQ3MTEyNSwidWlkIjo0MjYzMTIxMCwiaWFkIjoiMjAyMy0wNC0yOFQxMzozMToxOC4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MTY2OTIyNzMsInJnbiI6InVzZTEifQ.7tPvOl38AxPEv7RRupTylfK6DuhdchhasZdgjXTgYHI"}};
 
 function App() {
-  const [data, setData] = useState('cargando')
-
-  //{"query": "{boards(ids:  { name id description items { name column_values{title id type text } } } }"
-  useEffect(()=>{
-    if(data === 'cargando') {
-      axios.get('https://api.monday.com/v2',{Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjI1MzQ3MTEyNSwidWlkIjo0MjYzMTIxMCwiaWFkIjoiMjAyMy0wNC0yOFQxMzozMToxOC4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MTY2OTIyNzMsInJnbiI6InVzZTEifQ.7tPvOl38AxPEv7RRupTylfK6DuhdchhasZdgjXTgYHI"})
-        .then(x=>{
-          console.log(x);
-          setData(x);
-        })
-    }
-  },[])
-
   return (
     <>
       <h1>Prueba Monday - Calendario dinamico</h1>
-      <p>Probando la api de <a href="https://monday.com/lang/es" target='_blank'>monday</a></p>
-      {data}
+      hola
+      <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23039BE5&ctz=America%2FArgentina%2FCordoba&mode=WEEK&showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YzU2YWNiOTIwZWM4OTFiYjI2MTZlYWRkOWZkNWI2ZGVkZTY3ZjljNTRiNGQ4MGI4ZDA1NzNiOTRjMzBjNjU4ZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZXMuYXIjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23F4511E&color=%230B8043" width="800" height="400"></iframe>
     </>
   )
 }
